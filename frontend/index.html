@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Academic Answer Quality Checker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<div class="header-icon">🎓</div>
+<h1>Academic Answer Quality Checker</h1>
+<p class="subtitle">AI + NLP Based Answer Evaluation System</p>
+</header>
+
+
+<section class="card input-section">
+<h2>📝 Enter Details</h2>
+
+<form id="qaForm" autocomplete="off">
+
+<div class="form-group">
+<label>Question</label>
+<textarea id="question" rows="3"
+placeholder="Enter exam question..."></textarea>
+</div>
+
+
+<div class="form-group">
+
+<label>Model / Teacher Answer</label>
+
+<textarea id="model_answer" rows="5"
+placeholder="Generate AI answer or write teacher answer"></textarea>
+
+<!-- NEW AI BUTTON -->
+<button type="button" id="generateAI" class="secondary-btn">
+🤖 Generate AI Answer
+</button>
+
+</div>
+
+
+<div class="form-group">
+<label>Student Answer</label>
+<textarea id="student_answer" rows="5"
+placeholder="Enter student's answer..."></textarea>
+</div>
+
+
+<button id="submitBtn" type="submit">
+<span id="btnText">🔍 Check Answer Quality</span>
+<span id="btnLoader" class="loader hidden"></span>
+</button>
+
+
+<button id="clearBtn" type="button" class="secondary-btn">
+🧹 Clear Text
+</button>
+
+</form>
+
+</section>
+
+
+<div id="errorBox" class="error-box hidden"></div>
+
+
+
+<section id="results" class="card results-section hidden">
+
+<h2>📊 AI Evaluation Results</h2>
+
+
+<div class="scores-grid">
+
+
+<div class="score-card">
+<div class="score-icon">🧠</div>
+<div class="score-label">Relevance</div>
+<div class="score-value" id="similarityScore">--</div>
+</div>
+
+
+<div class="score-card">
+<div class="score-icon">📚</div>
+<div class="score-label">Keyword Coverage</div>
+<div class="score-value" id="coverageScore">--</div>
+</div>
+
+
+<div class="score-card">
+<div class="score-icon">✏️</div>
+<div class="score-label">Grammar</div>
+<div class="score-value" id="grammarScore">--</div>
+</div>
+
+
+<div class="score-card">
+<div class="score-icon">📄</div>
+<div class="score-label">Completeness</div>
+<div class="score-value" id="clarityScore">--</div>
+</div>
+
+
+</div>
+
+
+
+<div class="final-score-section">
+
+<div class="final-score-label">
+🏆 Final Quality Score
+</div>
+
+<div class="final-score-value" id="finalScore">
+--
+</div>
+
+</div>
+
+
+
+<div class="feedback-section">
+
+<h3>💬 AI Feedback</h3>
+
+<p id="feedbackText">--</p>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
