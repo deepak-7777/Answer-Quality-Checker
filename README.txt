@@ -1,44 +1,82 @@
-🎓 Academic Answer Quality Checker
+# 🎓 Academic Answer Quality Checker – NLP Evaluation System
 
-This repository contains my NLP-based project for evaluating student answers automatically using semantic analysis, keyword matching, grammar checking, and completeness scoring.
+Academic Answer Quality Checker is an intelligent NLP-based application designed to automatically evaluate student answers. It compares student responses with a model answer and generates structured scores based on relevance, keyword coverage, grammar quality, and completeness.
 
-📘 About
-
-The purpose of this project is to evaluate academic answers using Natural Language Processing techniques.
-
-It compares a student’s answer with a model answer and generates structured scoring with feedback to improve learning quality.
+---
 
 🚀 Features
+🧠 Semantic Relevance Scoring
 
-Semantic similarity scoring
+The system compares the student answer with a model answer.
 
-Keyword coverage detection
+It calculates semantic similarity using advanced NLP techniques.
 
-Grammar & spelling analysis
+Helps determine how closely the student response matches expected concepts.
 
-Completeness measurement
+---
 
-Weighted final score calculation
+🔑 Keyword Coverage Detection
 
-Structured feedback generation
+Important keywords are extracted from the model answer.
 
-🧮 Scoring Criteria
-📊 Evaluation Metrics
+The system checks whether these keywords appear in the student answer.
 
-Relevance Score (40%) – Measures semantic similarity
+Ensures essential academic concepts are covered.
 
-Keyword Score (30%) – Checks important keyword presence
+---
 
-Grammar Score (20%) – Evaluates grammar & spelling
+✍️ Grammar & Spelling Analysis
 
-Completeness Score (10%) – Checks answer coverage & length
+Grammar and spelling are evaluated automatically.
 
-Final Score Formula
+Writing clarity and language accuracy are assessed.
+
+Improves overall answer presentation quality.
+
+---
+
+📏 Completeness Measurement
+
+The application checks whether the answer covers key ideas.
+
+Length and depth of explanation are considered.
+
+Prevents overly short or incomplete responses.
+
+---
+
+📊 Weighted Final Score Calculation
+
+Each metric contributes to the final score using predefined weights.
+
+Relevance (40%), Keyword (30%), Grammar (20%), Completeness (10%).
+
+Generates structured and easy-to-understand feedback.
+
+---
+
+🌐 Interactive Web Interface
+
+Clean frontend for entering questions and answers.
+
+Instant score generation after submission.
+
+Designed for academic demonstration and learning purposes.
+
+---
+
+🧮 Scoring Formula
+
+Final Score is calculated as:
+
 Final Score =
-0.4 × Relevance +
-0.3 × Keyword +
-0.2 × Grammar +
-0.1 × Completeness
+(0.4 × Relevance) +
+(0.3 × Keyword) +
+(0.2 × Grammar) +
+(0.1 × Completeness)
+
+---
+
 📂 Project Structure
 AcademicAnswerChecker/
 │
@@ -54,83 +92,105 @@ AcademicAnswerChecker/
 │   └── script.js
 │
 └── README.md
-⚙ Technologies Used
-Backend
+
+---
+
+⚙ Tech Stack
+
+🔹 Backend
 
 Python 3.8+
-
 Flask
-
 flask-cors
-
 NLTK
-
 scikit-learn
-
 sentence-transformers
-
 language-tool-python
 
-Frontend
+---
+
+🔹 Frontend
 
 HTML5
-
 CSS3
+Vanilla JavaScript (Fetch API)
 
-Vanilla JavaScript
+---
 
 🛠 Installation
-
-Navigate to backend:
-
+1️⃣ Navigate to Backend Folder
 cd backend
-
-Create virtual environment:
-
+2️⃣ Create Virtual Environment (Recommended)
 python -m venv venv
-
-Activate:
-
+Activate it:
 Windows:
-
 venv\Scripts\activate
-
 Mac/Linux:
-
 source venv/bin/activate
-
-Install dependencies:
-
+3️⃣ Install Dependencies
 pip install -r requirements.txt
+
+Note: sentence-transformers downloads an AI model (~90MB) on first run.
+
+---
+
 ▶ How to Run
-
-Start backend:
-
+Step 1 — Start Backend Server
 python app.py
 
-Open frontend:
+You should see:
+Running on http://0.0.0.0:5000
+Keep this terminal open.
+Step 2 — Open Frontend
+Option 1:
+Open frontend/index.html directly in your browser.
 
-Either open frontend/index.html
 OR
 
 cd frontend
 python -m http.server 8080
 
-Then open:
+Open:
 
 http://localhost:8080
-📝 Example
+📝 Example Usage
+Question
 
-Question:
 What is photosynthesis?
 
-Output Example:
-
+Example Output
 Relevance Score:     78%
 Keyword Score:       65%
 Grammar Score:       90%
 Completeness Score:  66%
 Final Score:         75%
+Feedback
+
+Good answer with minor missing concepts. Grammar quality is strong, but some keywords are not fully covered.
+
+---
+
+🛠 Troubleshooting
+Grammar check slow?
+
+LanguageTool downloads its model on first execution.
+
+sentence-transformers installation error?
+
+Try:
+
+pip install sentence-transformers --no-cache-dir
+CORS error in browser?
+
+Ensure Flask backend is running before opening frontend.
+
+Java not found error?
+
+Install Java and restart your terminal.
+
+---
+
 📌 Purpose
 
-Built for academic NLP project demonstration and educational use.
+This project is built for academic NLP demonstration and educational learning purposes. It showcases automated answer evaluation using Natural Language Processing techniques.
+
