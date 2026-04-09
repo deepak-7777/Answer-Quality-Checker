@@ -1,168 +1,196 @@
-================================================================
-  ACADEMIC ANSWER QUALITY CHECKER
-  NLP-Powered Automated Answer Evaluation System
-================================================================
+# 🎓 Academic Answer Quality Checker – NLP Evaluation System
 
-PROJECT OVERVIEW
------------------
-This system automatically evaluates student answers against
-a model answer using Natural Language Processing (NLP).
+Academic Answer Quality Checker is an intelligent NLP-based application designed to automatically evaluate student answers. It compares student responses with a model answer and generates structured scores based on relevance, keyword coverage, grammar quality, and completeness.
 
-It calculates four scores:
-  - Relevance Score  (40% weight) — Semantic similarity
-  - Keyword Score    (30% weight) — Keyword coverage
-  - Grammar Score    (20% weight) — Grammar/spelling check
-  - Completeness     (10% weight) — Answer length check
+---
 
-Formula: Final = 0.4×Relevance + 0.3×Keyword + 0.2×Grammar + 0.1×Completeness
+🚀 Features
+🧠 Semantic Relevance Scoring
 
+The system compares the student answer with a model answer.
 
-FOLDER STRUCTURE
------------------
+It calculates semantic similarity using advanced NLP techniques.
+
+Helps determine how closely the student response matches expected concepts.
+
+---
+
+🔑 Keyword Coverage Detection
+
+Important keywords are extracted from the model answer.
+
+The system checks whether these keywords appear in the student answer.
+
+Ensures essential academic concepts are covered.
+
+---
+
+✍️ Grammar & Spelling Analysis
+
+Grammar and spelling are evaluated automatically.
+
+Writing clarity and language accuracy are assessed.
+
+Improves overall answer presentation quality.
+
+---
+
+📏 Completeness Measurement
+
+The application checks whether the answer covers key ideas.
+
+Length and depth of explanation are considered.
+
+Prevents overly short or incomplete responses.
+
+---
+
+📊 Weighted Final Score Calculation
+
+Each metric contributes to the final score using predefined weights.
+
+Relevance (40%), Keyword (30%), Grammar (20%), Completeness (10%).
+
+Generates structured and easy-to-understand feedback.
+
+---
+
+🌐 Interactive Web Interface
+
+Clean frontend for entering questions and answers.
+
+Instant score generation after submission.
+
+Designed for academic demonstration and learning purposes.
+
+---
+
+🧮 Scoring Formula
+
+Final Score is calculated as:
+
+Final Score =
+(0.4 × Relevance) +
+(0.3 × Keyword) +
+(0.2 × Grammar) +
+(0.1 × Completeness)
+
+---
+
+📂 Project Structure
 AcademicAnswerChecker/
 │
 ├── backend/
-│   ├── app.py            ← Flask API server
-│   ├── nlp_engine.py     ← All NLP logic
-│   └── requirements.txt  ← Python dependencies
+│   ├── app.py
+│   ├── nlp_engine.py
+│   ├── lt_test.py
+│   └── requirements.txt
 │
 ├── frontend/
-│   ├── index.html        ← Main UI page
-│   ├── style.css         ← Styling
-│   └── script.js         ← Frontend logic
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 │
-└── README.txt            ← This file
+└── README.md
 
+---
 
-REQUIREMENTS
--------------
-- Python 3.8 or higher
-- pip (Python package manager)
-- A modern web browser (Chrome, Firefox, Edge)
-- Java (required by language-tool-python for grammar checking)
-  Download Java from: https://www.java.com/en/download/
+⚙ Tech Stack
 
+🔹 Backend
 
-INSTALLATION STEPS
--------------------
-1. Open a terminal or command prompt.
+Python 3.8+
+Flask
+flask-cors
+NLTK
+scikit-learn
+sentence-transformers
+language-tool-python
 
-2. Navigate to the backend folder:
-     cd AcademicAnswerChecker/backend
+---
 
-3. (Recommended) Create a virtual environment:
-     python -m venv venv
+🔹 Frontend
 
-   Activate it:
-     Windows:  venv\Scripts\activate
-     Mac/Linux: source venv/bin/activate
+HTML5
+CSS3
+Vanilla JavaScript (Fetch API)
 
-4. Install dependencies:
-     pip install -r requirements.txt
+---
 
-   NOTE: sentence-transformers will download the AI model
-   (~90MB) the first time it runs. This is normal.
+🛠 Installation
+1️⃣ Navigate to Backend Folder
+cd backend
+2️⃣ Create Virtual Environment (Recommended)
+python -m venv venv
+Activate it:
+Windows:
+venv\Scripts\activate
+Mac/Linux:
+source venv/bin/activate
+3️⃣ Install Dependencies
+pip install -r requirements.txt
 
-5. First-time NLTK data download happens automatically on
-   first run.
+Note: sentence-transformers downloads an AI model (~90MB) on first run.
 
+---
 
-HOW TO RUN
------------
-Step 1 — Start the Backend Server:
-  In the backend/ folder, run:
-    python app.py
+▶ How to Run
+Step 1 — Start Backend Server
+python app.py
 
-  You should see:
-    * Running on http://0.0.0.0:5000
+You should see:
+Running on http://0.0.0.0:5000
+Keep this terminal open.
+Step 2 — Open Frontend
+Option 1:
+Open frontend/index.html directly in your browser.
 
-  Keep this terminal window open.
+OR
 
-Step 2 — Open the Frontend:
-  Open the frontend/index.html file directly in your browser.
-  (Double-click the file, or drag it into a browser window.)
+cd frontend
+python -m http.server 8080
 
-  OR use a simple HTTP server:
-    cd frontend
-    python -m http.server 8080
-  Then open: http://localhost:8080
+Open:
 
-Step 3 — Use the Application:
-  1. Type the Question
-  2. Type the Model Answer
-  3. Type the Student Answer
-  4. Click "Check Answer Quality"
-  5. View scores and feedback
+http://localhost:8080
+📝 Example Usage
+Question
 
+What is photosynthesis?
 
-EXAMPLE INPUT
---------------
-Question:
-  What is photosynthesis?
+Example Output
+Relevance Score:     78%
+Keyword Score:       65%
+Grammar Score:       90%
+Completeness Score:  66%
+Final Score:         75%
+Feedback
 
-Model Answer:
-  Photosynthesis is the process by which green plants and some
-  other organisms use sunlight, water, and carbon dioxide to
-  produce oxygen and energy in the form of sugar. It occurs
-  mainly in the chloroplasts of plant cells using chlorophyll.
+Good answer with minor missing concepts. Grammar quality is strong, but some keywords are not fully covered.
 
-Student Answer:
-  Photosynthesis is a process used by plants to make food from
-  sunlight and carbon dioxide. Plants use chlorophyll to absorb
-  light energy and convert it into glucose.
+---
 
+🛠 Troubleshooting
+Grammar check slow?
 
-EXAMPLE OUTPUT
---------------
-  Relevance Score:    78%
-  Keyword Score:      65%
-  Grammar Score:      90%
-  Completeness Score: 66%
-  Final Score:        75%
+LanguageTool downloads its model on first execution.
 
-  Feedback:
-    Good answer with room for improvement. The answer is somewhat
-    relevant but misses key ideas. Some keywords are missing.
-    Grammar and spelling look good. Answer length is average.
+sentence-transformers installation error?
 
+Try:
 
-TROUBLESHOOTING
-----------------
-Problem: Grammar check is slow on first run
-Solution: language-tool-python downloads a language model the
-          first time. This is normal. Subsequent runs are faster.
+pip install sentence-transformers --no-cache-dir
+CORS error in browser?
 
-Problem: "sentence-transformers" fails to install
-Solution: Try: pip install sentence-transformers --no-cache-dir
-          Or remove it from requirements.txt — the system will
-          fall back to TF-IDF similarity automatically.
+Ensure Flask backend is running before opening frontend.
 
-Problem: CORS error in browser
-Solution: Make sure the Flask server is running (python app.py)
-          and try refreshing the browser page.
+Java not found error?
 
-Problem: Java not found error
-Solution: Install Java from https://www.java.com and restart
-          your terminal.
+Install Java and restart your terminal.
 
+---
 
-TECHNOLOGIES USED
-------------------
-Backend:
-  - Python 3.8+
-  - Flask (web framework)
-  - flask-cors (cross-origin requests)
-  - NLTK (tokenization, stopwords)
-  - scikit-learn (TF-IDF, cosine similarity)
-  - sentence-transformers (semantic similarity)
-  - language-tool-python (grammar checking)
+📌 Purpose
 
-Frontend:
-  - HTML5
-  - CSS3 (responsive grid, animations)
-  - Vanilla JavaScript (fetch API)
+This project is built for academic NLP demonstration and educational learning purposes. It showcases automated answer evaluation using Natural Language Processing techniques.
 
-
-================================================================
-  Built for academic NLP project demonstration purposes.
-================================================================
