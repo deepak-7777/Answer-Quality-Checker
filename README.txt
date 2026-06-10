@@ -8,7 +8,7 @@ Academic Answer Quality Checker is an intelligent NLP-based application designed
 🧠 Semantic Relevance Scoring
 
 The system compares the student answer with a model answer.
-
+ 
 It calculates semantic similarity using advanced NLP techniques.
 
 Helps determine how closely the student response matches expected concepts.
