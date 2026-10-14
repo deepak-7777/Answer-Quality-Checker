@@ -1,5 +1,5 @@
 # 🎓 Academic Answer Quality Checker – NLP Evaluation System
-
+ 
 Academic Answer Quality Checker is an intelligent NLP-based application designed to automatically evaluate student answers. It compares student responses with a model answer and generates structured scores based on relevance, keyword coverage, grammar quality, and completeness.
 
 ---
